@@ -10,8 +10,16 @@ public class socketServer {
 
 	public static void main(String args[]) throws IOException, ClassNotFoundException {
 
+		if (args.length == 1) {		
+			port = Integer.parseInt(args[0]);
+		}
+
+		if (!(port >= 1024) && !(port <= 65536)) {
+			throw new IndexOutOfBoundsException("Valor para socket precisa estar entre 1024 e 65536");
+		}
 		server = new ServerSocket(port);
 	
+		System.out.println("Ouvindo porta " + Integer.toString(port));
 		System.out.println("Aguardando conexoes");		
 			
 		while (!server.isClosed()) {
