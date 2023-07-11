@@ -26,7 +26,6 @@ public class socketServer {
 
 		while (!server.isClosed()) {
 
-//			Socket socket = server.accept();			
 			Scanner entrada = new Scanner(socket.getInputStream());			
 			
 			while (entrada.hasNextLine()) {
@@ -39,8 +38,6 @@ public class socketServer {
 				}
 				
 			}
-
-//			socket.close();
 		}
 		
 		socket.close();
