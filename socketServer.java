@@ -22,9 +22,11 @@ public class socketServer {
 		System.out.println("Ouvindo porta " + Integer.toString(port));
 		System.out.println("Aguardando conexoes");		
 			
+		Socket socket = server.accept();
+
 		while (!server.isClosed()) {
 
-			Socket socket = server.accept();			
+//			Socket socket = server.accept();			
 			Scanner entrada = new Scanner(socket.getInputStream());			
 			
 			while (entrada.hasNextLine()) {
@@ -38,7 +40,9 @@ public class socketServer {
 				
 			}
 
-			socket.close();
+//			socket.close();
 		}
+		
+		socket.close();
 	}
 }
